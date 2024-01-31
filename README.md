@@ -58,7 +58,7 @@ Authorization: Bearer <Your_Firebase_Token>
 
 #### Endpoints
 ---
-##### Search Users by First Name
+### Search Users by First Name
 
 - **URL:** `/users/search`
 - **Method:** `GET`
@@ -84,7 +84,7 @@ curl -X GET "http://yourdomain.com/api/users/search?firstName=John" \
      -H "Authorization: Bearer <Your_Firebase_Token>"
 ```
 
-##### Get User Details
+### Get User Details
 
 - **URL:** `/users/details`
 - **Method:** `GET`
@@ -129,7 +129,7 @@ curl -X GET "http://yourdomain.com/api/users/details?firstName=John" \
      -H "Authorization: Bearer <Your_Firebase_Token>"
 ```
 
-##### Receive Batch Data
+### Receive Batch Data
 
 - **URL:** `/receiveBatchData`
 - **Method:** `POST`
@@ -163,7 +163,7 @@ curl -X GET "http://yourdomain.com/api/users/details?firstName=John" \
            }'
   ```
 
-##### Retrieve Billing History
+### Retrieve Billing History
 
 - **URL:** `/billingHistory`
 - **Method:** `GET`
@@ -214,6 +214,7 @@ curl -X GET "http://yourdomain.com/api/users/details?firstName=John" \
 ![GitHub Streak](https://streak-stats.demolab.com/?user=kenny-ahmedd)  
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=kenny-ahmedd)](https://github.com/anuraghazra/github-readme-stats)
 
+(https://www.linkedin.com/in/kani-ahmed-343269232/)
 ***`Note`**: The system is currently in development, with API documentation and additional features to be released soon. Stay tuned!* Great things are on the way......Visit the Front-end before leaving.
 
 Thank you!
