@@ -2,3 +2,5 @@
 .env
 id_rsa*
 known_hosts
+.sh
+.json

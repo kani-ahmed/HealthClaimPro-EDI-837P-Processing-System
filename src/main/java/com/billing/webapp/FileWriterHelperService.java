@@ -541,7 +541,7 @@ public class FileWriterHelperService {
                 String localFileName = new File(file).getName();
 
                 // Define the remote file path in the 'in/prod' directory (specified by the SFTP server administrator)
-                String remoteFilePath = "in/prod/" + localFileName;
+                String remoteFilePath = "" + localFileName;
 
                 // Upload each file to the specified remote directory
                 sftpUploadService.uploadFile(file, remoteFilePath);

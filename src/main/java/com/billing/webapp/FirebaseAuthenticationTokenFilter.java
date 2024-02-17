@@ -26,6 +26,21 @@ public class FirebaseAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+        // Bypass authentication for local requests (development only)
+        String requestIP = request.getRemoteAddr();
+        if ("127.0.0.1".equals(requestIP) || "0:0:0:0:0:0:0:1".equals(requestIP)) {
+            // Log a warning or info to remind you that authentication is being bypassed
+            System.out.println("Bypassing authentication for request from localhost for development purposes.");
+
+            // Set a fully authenticated user for the SecurityContext
+            Authentication authentication = new UsernamePasswordAuthenticationToken("localUser", null, Collections.emptyList());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            // Continue the filter chain with the authenticated user
+            filterChain.doFilter(request, response);
+            return; // Important to return here so the rest of the method is skipped
+        }
+
         String authToken = request.getHeader("Authorization");
 
         try {

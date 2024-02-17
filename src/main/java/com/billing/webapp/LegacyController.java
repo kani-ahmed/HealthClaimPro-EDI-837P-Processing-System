@@ -48,8 +48,8 @@ public class LegacyController {
     }
 
     /*
-    * This endpoint is used by the interface to request usernames from the database by part of the first name.
-    * It returns a list of usernames that match the search string passed from the interface.
+     * This endpoint is used by the interface to request usernames from the database by part of the first name.
+     * It returns a list of usernames that match the search string passed from the interface.
      */
     @GetMapping("/users/search")
     @CrossOrigin
@@ -66,11 +66,11 @@ public class LegacyController {
 
 
     /*
-    * This endpoint is used by the interface to request the details of a user by username (chosen from the list of usernames returned by the previous endpoint).
-    * It returns the details of the user with the latest date range.
-    * It uses the LegacyDataDetails class to format the response.
-    * It returns a 404 response if the user is not found.
-    * It returns a 200 response with the details of the user if the user is found.
+     * This endpoint is used by the interface to request the details of a user by username (chosen from the list of usernames returned by the previous endpoint).
+     * It returns the details of the user with the latest date range.
+     * It uses the LegacyDataDetails class to format the response.
+     * It returns a 404 response if the user is not found.
+     * It returns a 200 response with the details of the user if the user is found.
      */
     @GetMapping("/users/details")
     @CrossOrigin
@@ -96,14 +96,14 @@ public class LegacyController {
     }
 
     /*
-    * This endpoint is used to receive claim specific data (for single client or batch of clients at once) from the interface.
-    * The endpoint can receive multiple requests in a single batch. The requests are sent as a LegacyRequestBatch object. See the LegacyRequestBatch class for details.
-    * It uses the LegacyService to generate the claim files and the LegacyDataService to save the data in the database.
-    * It uses the ZipUtil class to zip the files.
-    * It uses the SftpUploadService class to upload the files to the SFTP server.
-    * It returns a 200 response with the combined zip file if the files are generated and uploaded successfully.
-    * It returns a 400 response if the request is empty or null.
-    * It returns a 500 response if there is an error in generating or sending the files.
+     * This endpoint is used to receive claim specific data (for single client or batch of clients at once) from the interface.
+     * The endpoint can receive multiple requests in a single batch. The requests are sent as a LegacyRequestBatch object. See the LegacyRequestBatch class for details.
+     * It uses the LegacyService to generate the claim files and the LegacyDataService to save the data in the database.
+     * It uses the ZipUtil class to zip the files.
+     * It uses the SftpUploadService class to upload the files to the SFTP server.
+     * It returns a 200 response with the combined zip file if the files are generated and uploaded successfully.
+     * It returns a 400 response if the request is empty or null.
+     * It returns a 500 response if there is an error in generating or sending the files.
      */
     @PostMapping("/receiveBatchData")
     public ResponseEntity<?> receiveBatchData(@RequestBody LegacyRequestBatch batch) {
@@ -161,13 +161,13 @@ public class LegacyController {
     }
 
     /*
-    * This endpoint is used to retrieve the billing history from the database.
-    * It uses the LegacyDataRepository and LegacyDataService to retrieve the billing history.
-    * It uses the BillingHistoryDTO class to format the billing history response.
-    * It returns a 200 response with the billing history if the billing history is retrieved successfully.
-    * It returns a 500 response if there is an error in retrieving the billing history.
-    * It returns an empty list if there is no billing history.
-    * The billing history is returned as a list of BillingHistoryDTO objects.
+     * This endpoint is used to retrieve the billing history from the database.
+     * It uses the LegacyDataRepository and LegacyDataService to retrieve the billing history.
+     * It uses the BillingHistoryDTO class to format the billing history response.
+     * It returns a 200 response with the billing history if the billing history is retrieved successfully.
+     * It returns a 500 response if there is an error in retrieving the billing history.
+     * It returns an empty list if there is no billing history.
+     * The billing history is returned as a list of BillingHistoryDTO objects.
      */
     @GetMapping("/billingHistory")
     public ResponseEntity<List<BillingHistoryDTO>> getBillingHistory() {
@@ -178,10 +178,10 @@ public class LegacyController {
     // New class to format the detailed response
     static class LegacyDataDetails {
         /*
-            * This class is used to format the detailed response.
-            * It is used to return the details of the user with the latest date range (latest claim date range).
-            * It is used by the getUserDetailsByFirstName endpoint.
-            * It is used by the interface to display the details of the user with the latest date range.
+         * This class is used to format the detailed response.
+         * It is used to return the details of the user with the latest date range (latest claim date range).
+         * It is used by the getUserDetailsByFirstName endpoint.
+         * It is used by the interface to display the details of the user with the latest date range.
          */
         private Map<String, Double> serviceHoursDetails; // Map to hold the service hours details for each day of the week
         private String startDate; // Start date of the latest date range
