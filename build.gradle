@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot dependencies for web, data, security, and testing
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
@@ -23,16 +24,22 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     runtimeOnly 'com.mysql:mysql-connector-j'
-    //implementation 'org.springframework.boot:spring-boot-starter'
-    //implementation 'commons-net:commons-net:3.9.0'  // Apache Commons Net for FTP
-    //testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    // Lombok for reducing boilerplate code in Java classes and interfaces
     implementation 'com.jcraft:jsch:0.1.55'
     implementation 'com.google.firebase:firebase-admin:9.2.0'
-    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-    compileOnly('javax.persistence:javax.persistence-api:2.2')
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
+
+    // Jackson dependencies for handling JSON with Jakarta EE
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jakarta-jsonp:2.16.1'
+    implementation 'com.fasterxml.jackson.jakarta.rs:jackson-jakarta-rs-json-provider:2.16.1'
+
+    // Jackson dependencies for handling JSON with Hibernate 6 (Jakarta EE)
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate6:2.16.1'
+
+    // Hibernate compatible with Jakarta Persistence
+    implementation 'org.hibernate:hibernate-core:6.1.2.Final'
+
+    implementation 'org.eclipse.parsson:jakarta.json:1.1.5'
 }
 
 tasks.named('test') {

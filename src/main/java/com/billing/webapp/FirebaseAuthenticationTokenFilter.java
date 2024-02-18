@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Collections;
 
 public class FirebaseAuthenticationTokenFilter extends OncePerRequestFilter {
@@ -28,7 +30,13 @@ public class FirebaseAuthenticationTokenFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         // Bypass authentication for local requests (development only)
         String requestIP = request.getRemoteAddr();
-        if ("127.0.0.1".equals(requestIP) || "0:0:0:0:0:0:0:1".equals(requestIP)) {
+
+        // Log or print the IP address of the incoming request
+        System.out.println("Incoming request from IP: " + requestIP);
+    try {
+        InetAddress addr = InetAddress.getByName(requestIP);
+
+        if (addr.isLoopbackAddress() || addr.isSiteLocalAddress()) {
             // Log a warning or info to remind you that authentication is being bypassed
             System.out.println("Bypassing authentication for request from localhost for development purposes.");
 
@@ -40,6 +48,10 @@ public class FirebaseAuthenticationTokenFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return; // Important to return here so the rest of the method is skipped
         }
+    } catch (UnknownHostException e) {
+        System.err.println("Error processing IP address: " + e.getMessage());
+        // Consider how to handle the error. For example, you might want to continue the filter chain or return an error response.
+    }
 
         String authToken = request.getHeader("Authorization");
 

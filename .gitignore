@@ -4,3 +4,4 @@ id_rsa*
 known_hosts
 .sh
 .json
+.env*src/main/java/com/billing/webapp/firebase-login-key.json
