@@ -6,5 +6,5 @@ known_hosts
 .env*
 .json
 *.jar
-*.json
 app-config.yaml
+.env-docker
