@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: app:latest
+          imagePullPolicy: Never
+          resources:
+            requests:
+              cpu: "250m"  # Request 250 millicpu (1 CPU = 1000m)
+            limits:
+              cpu: "500m"  # Maximum limit of CPU usage before throttling
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: app-config  # Reference to ConfigMap holding environment variables

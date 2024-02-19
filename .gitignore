@@ -7,3 +7,4 @@ known_hosts
 .json
 *.jar
 *.json
+app-config.yaml

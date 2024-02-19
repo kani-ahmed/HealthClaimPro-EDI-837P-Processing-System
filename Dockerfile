@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu
 # Set the working directory inside the container
 WORKDIR /app
 
-# Argument for specifying the jar file (based from the script: run_docker.sh)
+# Argument for specifying the jar file (based from the script: create_run_docker.sh)
 ARG JAR_FILE
 
 # Copy the Firebase configuration and other necessary files into the container
