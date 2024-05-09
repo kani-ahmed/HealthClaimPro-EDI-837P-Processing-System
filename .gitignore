@@ -5,6 +5,8 @@ known_hosts
 *.json
 .env*
 .json
-*.jar
 app-config.yaml
 .env-docker
+env
+env-docker
+firebase-login-key.json
